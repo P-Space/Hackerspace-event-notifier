@@ -11,7 +11,7 @@ my $oldevent = 'foo';
 my $message = 'foo';
 my $user = 'foo';
 my $time = '00:00';
-my $url = 'http://pspace.dyndns.org/report/index.php?limit=1&nostyle';
+my $url = 'http://www.p-space.gr/report/index.php?limit=1&nostyle';
 my $statusurl = 'http://www.p-space.gr/status/';
 my $status = 1;
 my $oldstatus = 0;
@@ -29,18 +29,18 @@ while (1==1)
 		$oldstatus = $status ;
 		if ($status == 1) {
 #                       print "\n       P-space is open         \n";
-                	$statusmsg = "P-space is open";
+                	$statusmsg = "P-Space is open";
                 }
                 else {
 #                       print "\n               P-space closed          \n";
-                	$statusmsg = "P-space is closed";
+                	$statusmsg = "P-Space is closed";
                 }
 
 		if ($event ne ""){
 			 $oldevent = $event ;
 		} 
 		@values = split(' ', $oldevent);
-		my $diftime= time()-$values[0];
+		my $diftime= time()-$values[0]+28800-1*60*60;
 		my ($sec, $min, $hour, $day,$month,$year) = (gmtime($diftime))[0,1,2,3,4,5];
 		$hour=$hour+($day-1)*24;
 #		print "Unix time ".$diftime." means ".$day." day, ";
